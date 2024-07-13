@@ -1,0 +1,14 @@
+[
+    {
+      "slug": "free",
+      "value": "Free themes",
+      "type": "Price",
+      "quick_link": "/themes?price=free"
+    },
+    {
+      "slug": "fresh",
+      "value": "Fresh",
+      "type": "Theme",
+      "quick_link": "/themes/fresh"
+    }
+  ]

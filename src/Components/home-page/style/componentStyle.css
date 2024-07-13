@@ -1,0 +1,11 @@
+@media screen and (min-width: 768px) {
+  .swiper-pagination {
+    left: 70px !important;
+    top: 440px !important;
+    display: inline-block !important;
+    text-align: start !important;
+    font-size: 20px !important;
+    z-index: 0 !important;
+    position: relative;
+  }
+}
