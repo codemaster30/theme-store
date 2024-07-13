@@ -33,6 +33,7 @@ const Navigation = () => {
   const { userData, setUserData } = useContextData();
   // console.log(userData);
   const isUser = userData?.id || null;
+  // console.log(userData);
   // console.log("user data: ", isUser);
   const [show, setShow] = useState("hidden");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

@@ -81,9 +81,7 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mt-9">
             {error && (
-              <h3 className="text-red-500">
-                {error.response?.data?.message || error.message}
-              </h3>
+              <h3 className="text-red-500">Incorrect email or password</h3>
             )}
             <h5>Email</h5>
             <input
