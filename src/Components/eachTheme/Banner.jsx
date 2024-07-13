@@ -12,9 +12,10 @@ const Banner = ({ data }) => {
       <div className="  py-16 w-11/12 md:w-10/12 max-w-[1800px] mx-auto flex flex-col lg:flex-row gap-6 ">
         {/* description section */}
         <div className="lg:w-1/3 w-full text-center lg:text-left">
-          <h1 className="text-4xl ">
+          <h1 className="text-4xl pb-1">
             {data?.name}
             <span className=" text-sm">
+              {" "}
               by{" "}
               <a href="/kjfvnke" className="underline">
                 {data?.author}
@@ -43,10 +44,10 @@ const Banner = ({ data }) => {
               Buy Now
             </button>
           </div>
-          <div className="pt-8 flex gap-4 items-center flex-col">
+          <div className="pt-8 flex gap-4 justify-start items-start hover:translate-x-3 duration-300 flex-col">
             <Link href="#demo">
               {" "}
-              <p className="text-lg text-center flex items-center gap-2 hover:text-primaryColor">
+              <p className="text-lg text-center flex items-center justify-center gap-2 hover:text-primaryColor">
                 View Demo Store <MdReadMore size={"2rem"} />
               </p>{" "}
             </Link>
