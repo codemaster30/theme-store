@@ -43,7 +43,7 @@ const Testimonial = () => {
                 <div
                   className="text-center inline-block w-full rounded-xl h-[562px] bg-contain bg-no-repeat bg-center"
                   style={{
-                    backgroundImage: `url('https://cdn.shopify.com/theme-store/q1alwd14rzguxn4ilv2kepclqr5u.jpg')`,
+                    backgroundImage: `url('https://cdn.shopify.com/theme-store/f08k07e5il6a6jijk3tegnjfimvo.jpg')`,
                   }}
                 >
                   {/* <img
@@ -101,7 +101,6 @@ const Testimonial = () => {
               by Groupthought
             </p>
           </SwiperSlide>
-
           <SwiperSlide>
             <div className="flex flex-col md:flex-row md:gap-0 gap-20">
               <div className="w-full md:w-8/12 ">

@@ -31,7 +31,7 @@ const Page = ({ params }) => {
   return (
     <div className="mt-12">
       <Banner data={data.data}></Banner>
-      <DemoStore></DemoStore>
+      <DemoStore data={data} />
       {/* <WebCard></WebCard> */}
       <TabSection></TabSection>
       <Stories></Stories>

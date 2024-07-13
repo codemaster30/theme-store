@@ -1,7 +1,9 @@
+import useFetchQuery from "@/Hooks/shared/useFetch";
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
 
-const DemoStore = () => {
+const DemoStore = ({ data }) => {
+  const demos = data?.data?.demoStores;
   return (
     <div
       id="demo"
@@ -25,34 +27,40 @@ const DemoStore = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((dta) => (
+        {demos.map((dta) => (
           <div key={1} className="rounded-md shadow-md shadow-slate-200 w-full">
             {/* Image */}
-            <Link href={`/themes/${1}`}>
+            <a href={dta?.url || "#"}>
               {/* ${dta.id} */}
               <div
                 className="w-full rounded-t-md h-96  overflow-hidden max-h-full flex flex-col-reverse bg-cover bg-no-repeat bg-top hover:bg-bottom duration-1000"
                 style={{
                   // backgroundImage: `url(${dta?.featuredDesktopImage})`,
-                  backgroundImage: `url('https://cdn.shopify.com/theme-store/qumk1q6o0adk0lzvfybn0xfr4rl3.jpg')`,
+                  backgroundImage: `url(${
+                    dta?.image ||
+                    "https://cdn.shopify.com/theme-store/qumk1q6o0adk0lzvfybn0xfr4rl3.jpg"
+                  })`,
                 }}
               ></div>
-            </Link>
 
-            <div className="p-3 py-8">
-              <div className="flex items-center justify-between">
-                <Link href={""}>
-                  {" "}
-                  <h1 className="text-lg font-semibold hover:opacity-50 text-black "> ABCD</h1>
-                </Link>
-                <Link href={""}>
-                  <h1 className="text-4xl hover:text-primaryColor text-black opacity-50 hover:opacity-100 font-semibold">
-                    <HiOutlineExternalLink />
-                    {/* ${dta?.price} <span className="text-base">USD</span> */}
-                  </h1>
-                </Link>
+              <div className="p-3 py-8">
+                <div className="flex items-center justify-between">
+                  <Link href={""}>
+                    {" "}
+                    <h1 className="text-lg font-semibold hover:opacity-50 text-black ">
+                      {" "}
+                      ABCD
+                    </h1>
+                  </Link>
+                  <Link href={""}>
+                    <h1 className="text-4xl hover:text-primaryColor text-black opacity-50 hover:opacity-100 font-semibold">
+                      <HiOutlineExternalLink />
+                      {/* ${dta?.price} <span className="text-base">USD</span> */}
+                    </h1>
+                  </Link>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
         ))}
       </div>

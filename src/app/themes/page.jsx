@@ -14,17 +14,22 @@ import {
   Pagination,
   useDisclosure,
 } from "@nextui-org/react";
-import { useState } from "react";
 import useFetchQuery from "@/Hooks/shared/useFetch";
+import { useState } from "react";
 
 const Themes = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const [page, setPage] = useState(1);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
-  const { data, isLoading } = useFetchQuery("/themes");
+  const { data, isLoading } = useFetchQuery("/themes", {
+    page: currentPage,
+  });
   const cards = data?.data || [];
-  console.log(cards);
+  console.log(data);
   // console.log("Is Loading: ", isLoading);
   return (
     <div className="mt-24">
@@ -87,7 +92,8 @@ const Themes = () => {
         <div className="w-full md:w-3/4 p-3">
           <div className="flex flex-col sm:flex-row justify-between items-center mb-6 w-full">
             <p className="text-slate-400 md:text-sm w-full text-left">
-              1-24 of 212 themes
+              {currentPage}-{currentPage * data?.meta?.limit} of{" "}
+              {data?.meta?.total} themes
             </p>
 
             {/* Dropdown select */}
@@ -113,16 +119,12 @@ const Themes = () => {
 
           <div className="w-full flex items-center justify-center my-14">
             <Pagination
-              className="mx-auto shadow-none"
-              classNames={"next"}
-              isCompact
+              className="text-white mx-auto"
+              loop
               showControls
-              size="lg"
-              variant="light"
-              color="default"
-              total={20 || 0}
-              siblings={3}
-              initialPage={1}
+              total={Math.ceil(data?.meta?.total / data?.meta?.limit)}
+              initialPage={currentPage}
+              onChange={handlePageChange}
             />
           </div>
         </div>
